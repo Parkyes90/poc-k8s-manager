@@ -1,9 +1,16 @@
+import { actionTypes } from "../actions";
+
 /**
  *
  * @param state
  * @param action
- * @returns {null}
+ * @returns {boolean}
  */
-export default (state, action) => {
-  return null;
-}
+export default (state = false, action) => {
+  switch (action.type) {
+    case actionTypes.CORRECT_GUESS:
+      return true;
+    default:
+      return state;
+  }
+};
