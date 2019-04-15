@@ -1,5 +1,16 @@
-import checkPropTypes from 'check-prop-types';
+import checkPropTypes from "check-prop-types";
+import { createStore } from "redux";
 
+import rootReducer from '../src/reducers';
+
+/**
+ *
+ * @param initialState
+ * @returns {Store<any, Action> & *}
+ */
+export const storeFactory = (initialState) => {
+  return createStore(rootReducer, initialState);
+};
 /**
  *
  * @param wrapper
@@ -12,7 +23,7 @@ export const checkProps = (component, conformingProps) => {
   const propError = checkPropTypes(
     component.propTypes,
     conformingProps,
-    'prop',
+    "prop",
     component.name,
     undefined
   );
